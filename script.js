@@ -2,7 +2,7 @@ document.getElementById('sendBtn').addEventListener('click', async () => {
   const prompt = document.getElementById('prompt').value;
 
   // Replace this with your backend URL if needed
-  const res = await fetch('http://localhost:3000/chat', {
+  const res = await fetch('https://ai-chatbot-xtpo.onrender.com/chat', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ prompt })
