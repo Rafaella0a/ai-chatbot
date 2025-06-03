@@ -13,3 +13,11 @@ document.getElementById('sendBtn').addEventListener('click', async () => {
   responseBox.textContent = data.response;
   responseBox.classList.remove('hidden');
 });
+// New: fill input when clicking a suggested question
+document.querySelectorAll('.suggestion-btn').forEach(button => {
+  button.addEventListener('click', () => {
+    const promptInput = document.getElementById('prompt');
+    promptInput.value = button.textContent.trim();
+    promptInput.focus(); // optional: focus input after filling
+  });
+});
