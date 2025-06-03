@@ -1,31 +1,33 @@
-document.getElementById('sendBtn').addEventListener('click', async () => {
-  const prompt = document.getElementById('prompt').value;
-  if (prompt.trim() !== '') {
-    await sendPrompt(prompt);
-  }
-});
+document.addEventListener('DOMContentLoaded', () => {
+  const sendBtn = document.getElementById('sendBtn');
+  const promptInput = document.getElementById('prompt');
+  const responseBox = document.getElementById('response');
 
-// Function to send prompt
-async function sendPrompt(prompt) {
-  const res = await fetch('https://ai-chatbot-xtpo.onrender.com/chat', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ prompt })
+  async function sendPrompt(prompt) {
+    const res = await fetch('https://ai-chatbot-xtpo.onrender.com/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ prompt })
+    });
+
+    const data = await res.json();
+    responseBox.textContent = data.response;
+    responseBox.classList.remove('hidden');
+  }
+
+  sendBtn.addEventListener('click', async () => {
+    const prompt = promptInput.value.trim();
+    if (prompt !== '') {
+      await sendPrompt(prompt);
+    }
   });
 
-  const data = await res.json();
-  const responseBox = document.getElementById('response');
-  responseBox.textContent = data.response;
-  responseBox.classList.remove('hidden');
-}
-
-// Suggestion buttons: fill input AND send prompt
-document.querySelectorAll('.suggestion-btn').forEach(button => {
-  button.addEventListener('click', async () => {
-    const promptText = button.textContent.trim();
-    const promptInput = document.getElementById('prompt');
-    promptInput.value = promptText;
-    promptInput.focus();
-    await sendPrompt(promptText);
+  document.querySelectorAll('.suggestion-btn').forEach(button => {
+    button.addEventListener('click', async () => {
+      const text = button.textContent.trim();
+      promptInput.value = text;
+      promptInput.focus();
+      await sendPrompt(text);
+    });
   });
 });
