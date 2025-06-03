@@ -9,7 +9,8 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-// Serve static files (HTML, JS, CSS)
+app.use(express.static(path.join(__dirname)));
+
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'chat.html'));
 });
