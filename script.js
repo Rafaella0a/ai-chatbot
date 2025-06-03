@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const responseBox = document.getElementById('response');
 
   async function sendPrompt(prompt) {
-    const res = await fetch('https://ai-chatbot-xtpo.onrender.com/chat', {
+    const res = await fetch('/chat', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ prompt })
