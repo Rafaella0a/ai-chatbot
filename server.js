@@ -11,7 +11,7 @@ app.use(express.json());
 // Predefined keyword-response pairs
 const responses = [
     {
-        keywords: ["about yourself","who are you","Tell me about you"],
+        keywords: ["about yourself","who are you","Tell me about you "],
         response: "Hi, I'm Rafaella, a computer science student passionate about web development and AI."
     },
     {
@@ -49,15 +49,16 @@ const responses = [
 app.post('/chat', (req, res) => {
   const prompt = req.body.prompt.toLowerCase();
 
-  // Look for keywords in the prompt
-  for (const keyword in responses) {
-    if (prompt.includes(keyword)) {
-      return res.json({ response: responses[keyword] });
+  for (const item of responses) {
+    for (const keyword of item.keywords) {
+      if (prompt.includes(keyword.toLowerCase())) {
+        return res.json({ response: item.response });
+      }
     }
   }
 
   // Default response if no keywords matched
-  res.json({ reply: "Sorry, I didn't understand that. Could you try asking in a different way?" });
+  res.json({ response: "Sorry, I didn't understand that. Could you try asking in a different way?" });
 });
 
 // Start the server
