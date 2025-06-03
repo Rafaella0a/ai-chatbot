@@ -9,13 +9,41 @@ app.use(cors());
 app.use(express.json());
 
 // Predefined keyword-response pairs
-const responses = {
-  "about yourself": "Hi, I'm Alex, a computer science student passionate about web development and AI.",
-  "projects": "I've worked on a weather app, a budgeting tool, and a REST API.",
-  "skills": "I'm skilled in JavaScript, Python, React, and SQL.",
-  "education": "I studied at XYZ University in Computer Science.",
-  "hobbies": "I enjoy hiking, reading sci-fi, and open source.",
-};
+const responses = [
+    {
+        keywords: ["about yourself","who are you","Tell me about you"],
+        response: "Hi, I'm Rafaella, a computer science student passionate about web development and AI."
+    },
+    {
+        keywords: ["projects","project","apps",],
+        response: "I've worked on a weather app, a budgeting tool, and a REST API."
+    },
+    {
+        keywords: ["skills","adept","expertise","programming languages"],
+        response: "I'm skilled in JavaScript, Python, C, and C++.",
+    },
+    {    
+        keywords: ["education","university","school","Where did you study","studied"], 
+        response: "I studied at University of Crete in Computer Science.",
+    },
+    {    
+        keywords: ["hobbies","free time"],
+        response: "I enjoy listening to music, reading sci-fi, and programming.",
+    },    
+    {
+        keywords: ["choose to study"],
+        response: "I've always been curious about how computers work behind the scenes."
+    },
+    {
+        keywords: ["interested in this intership","intership","interested in this job","apply"],
+        response: "It’s a great opportunity to apply what I’ve learned and grow as a developer."
+    },
+    {
+        keywords: ["experience"],
+        response: "I have experience working on several academic projects and personal coding challenges"
+    }   
+
+];
 
 // POST /chat endpoint
 app.post('/chat', (req, res) => {
