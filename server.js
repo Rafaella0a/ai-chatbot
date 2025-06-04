@@ -1,11 +1,12 @@
- const express = require('express');
+const express = require('express');
 const cors = require('cors');
 const path = require('path');
 
+// Create an Express application
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware
+// Middleware setup
 app.use(cors());
 app.use(express.json());
 
@@ -63,13 +64,13 @@ const responses = [
         response: "I’ve always been fascinated by how technology works. What really pulled me in was the idea that you can solve real problems just by writing code."
     },
     {
-        keywords: ["work in teams","work well in teams"],
+        keywords: ["work in teams","work well in teams","work in a team","work with others"],
         response: "I work well in teams because I genuinely enjoy learning from others and combining strengths to solve problems more effectively."
     }
 
 ];
 
-// POST /chat endpoint
+// Handle POST requests to /chat with user input in JSON format
 app.post('/chat', (req, res) => {
   const prompt = req.body.prompt.toLowerCase();
 
