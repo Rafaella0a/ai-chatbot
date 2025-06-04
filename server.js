@@ -23,7 +23,7 @@ const responses = [
         response: "Hi, I'm Rafaella, a computer science student passionate about web development and AI."
     },
     {
-        keywords: ["projects","project","apps",],
+        keywords: ["projects","project","apps","worked on"],
         response: "I've worked on a weather app, a budgeting tool, and a REST API."
     },
     {
@@ -31,11 +31,11 @@ const responses = [
         response: "I'm skilled in JavaScript, Python, C, and C++.",
     },
     {    
-        keywords: ["education","university","school","Where did you study","studied"], 
+        keywords: ["education","university","school","Where did you study"], 
         response: "I studied at University of Crete in Computer Science.",
     },
     {    
-        keywords: ["hobbies","free time"],
+        keywords: ["hobbies","free time","interests"],
         response: "I enjoy listening to music, reading sci-fi, and programming.",
     },    
     {
@@ -48,8 +48,24 @@ const responses = [
     },
     {
         keywords: ["experience"],
-        response: "I have experience working on several academic projects and personal coding challenges"
-    }   
+        response: "I have experience working on several academic projects and personal coding challenges."
+    },
+    {
+        keywords: ["stuck"],
+        response: "I take a break, then revisit it with a fresh mind. If I’m still stuck, I ask for help or look for patterns in similar problems online."
+    },
+    {
+        keywords: ["favourite course","favourite subject"],
+        response: "I really enjoyed linear algebra. Its use in image compression and AI seemed very interesting."
+    },
+    {
+        keywords: ["interested in computer ","interested in computers","like computers"],
+        response: "I’ve always been fascinated by how technology works. What really pulled me in was the idea that you can solve real problems just by writing code."
+    },
+    {
+        keywords: ["work with team","worked with teams"],
+        response: "I work well in teams because I genuinely enjoy learning from others and combining strengths to solve problems more effectively."
+    }
 
 ];
 
