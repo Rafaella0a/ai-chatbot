@@ -63,7 +63,7 @@ const responses = [
         response: "I’ve always been fascinated by how technology works. What really pulled me in was the idea that you can solve real problems just by writing code."
     },
     {
-        keywords: ["work with team","worked with teams"],
+        keywords: ["work in teams","work well in teams"],
         response: "I work well in teams because I genuinely enjoy learning from others and combining strengths to solve problems more effectively."
     }
 
